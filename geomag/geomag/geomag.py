@@ -15,6 +15,8 @@
 # -6.1335150785195536
 # >>>
 
+from __future__ import absolute_import, division, print_function
+import io
 import math, os, unittest
 from datetime import date
 
@@ -197,7 +199,7 @@ class GeoMag:
         if not wmm_filename:
             wmm_filename = os.path.join(os.path.dirname(__file__), 'WMM.COF')
         wmm=[]
-        with open(wmm_filename) as wmm_file:
+        with io.open(wmm_filename, 'rt') as wmm_file:
             for line in wmm_file:
                 linevals = line.strip().split()
                 if len(linevals) == 3:
